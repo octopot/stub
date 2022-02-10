@@ -2,6 +2,26 @@
 
 Stub domains for redirects.
 
+```bash
+htpasswd -c users traefik
+
+docker volume create acme
+docker volume create stub
+docker run --rm -it \
+  -v stub:/runtime \
+  -w /runtime \
+  alpine:latest
+# vi users
+
+docker run -d \
+  --name stub \
+  -p 80:80 \
+  -p 443:443 \
+  -v acme:/etc/traefik/acme \
+  -v stub:/runtime \
+  ghcr.io/octomation/stub:latest
+```
+
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
 [social.preview]:   https://cdn.octolab.org/repo/stub.png
