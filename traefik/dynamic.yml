@@ -1,0 +1,47 @@
+http:
+  routers:
+    dashboard:
+      rule: Host(`stub.octolab.org`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+      service: api@internal
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - auth
+
+    godownloader:
+      rule: Host(`godownloader.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-godownloader
+
+    goimports:
+      rule: Host(`goimports.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-goimports
+
+
+  middlewares:
+    auth:
+      basicAuth:
+        usersFile: /runtime/users
+
+    redirect-godownloader:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/godownloader/releases/tag/homebrew
+
+    redirect-goimports:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/go-tools/releases/tag/goimports
+
+  services:
+    github:
+      loadBalancer:
+        servers:
+          - url: https://github.com

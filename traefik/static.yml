@@ -1,0 +1,26 @@
+api:
+  dashboard: true
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: kamil@samigullin.info
+      storage: /etc/traefik/acme/acme.json
+      tlsChallenge: { }
+
+entryPoints:
+  web:
+    address: ":80"
+
+    http:
+      redirections:
+        entryPoint:
+          to: secure
+          scheme: https
+
+  secure:
+    address: ":443"
+
+providers:
+  file:
+    filename: /etc/traefik/handle.yml
