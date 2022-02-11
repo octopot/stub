@@ -24,6 +24,14 @@ http:
       middlewares:
         - redirect-goimports
 
+    golangci-lint:
+      rule: Host(`golangci-lint.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-golangci-lint
+
 
   middlewares:
     auth:
@@ -39,6 +47,11 @@ http:
       redirectRegex:
         regex: .*
         replacement: https://github.com/kamilsk/go-tools/releases/tag/goimports
+
+    redirect-golangci-lint:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
 
   services:
     github:
