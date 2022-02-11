@@ -32,6 +32,14 @@ http:
       middlewares:
         - redirect-golangci-lint
 
+    homebrew:
+      rule: Host(`homebrew.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-homebrew
+
 
   middlewares:
     auth:
@@ -52,6 +60,11 @@ http:
       redirectRegex:
         regex: .*
         replacement: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
+
+    redirect-homebrew:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octolab/homebrew-tap
 
   services:
     github:
