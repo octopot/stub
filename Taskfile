@@ -11,9 +11,9 @@ publish() {
   docker buildx build \
     --platform linux/amd64,linux/arm64 \
     --push \
-    -f Dockerfile \
+    -f traefik/Dockerfile \
     -t ghcr.io/octomation/stub:latest \
-    .
+    traefik
 }
 
 "${@}"
