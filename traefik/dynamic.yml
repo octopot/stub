@@ -48,6 +48,14 @@ http:
       middlewares:
         - redirect-homebrew
 
+    letsbuytogether:
+      rule: Host(`letsbuytogether.ru`, `www.letsbuytogether.ru`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-letsbuytogether
+
     tact-cloud:
       rule: Host(`cloud.tact.run`)
       service: github
@@ -81,6 +89,11 @@ http:
       redirectRegex:
         regex: .*
         replacement: https://github.com/octolab/homebrew-tap
+
+    redirect-letsbuytogether:
+      redirectRegex:
+        regex: ^https?://.*/(.*)
+        replacement: https://kupitevmeste.ru/${1}
 
     redirect-stub:
       redirectRegex:
