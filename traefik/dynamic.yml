@@ -40,6 +40,14 @@ http:
       middlewares:
         - redirect-homebrew
 
+    tact-cloud:
+      rule: Host(`cloud.tact.run`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-tact-cloud
+
 
   middlewares:
     auth:
@@ -65,6 +73,11 @@ http:
       redirectRegex:
         regex: .*
         replacement: https://github.com/octolab/homebrew-tap
+
+    redirect-tact-cloud:
+      redirectRegex:
+        regex: .*
+        replacement: https://kamilsk.cloud.okteto.net/
 
   services:
     github:
