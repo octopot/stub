@@ -64,6 +64,14 @@ http:
       middlewares:
         - redirect-octolab
 
+    samigullin:
+      rule: Host(`samigullin.info`, `www.samigullin.info`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-samigullin
+
     tact-cloud:
       rule: Host(`cloud.tact.run`)
       service: github
@@ -104,6 +112,11 @@ http:
         replacement: https://kupitevmeste.ru/${1}
 
     redirect-octolab:
+      redirectRegex:
+        regex: ^https?://.*/(.*)
+        replacement: https://kamil.samigullin.info/${1}
+
+    redirect-samigullin:
       redirectRegex:
         regex: ^https?://.*/(.*)
         replacement: https://kamil.samigullin.info/${1}
