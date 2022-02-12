@@ -8,6 +8,14 @@ http:
       middlewares:
         - auth
 
+    homepage:
+      rule: Host(`stub.octolab.org`) && Path(`/`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-stub
+
     godownloader:
       rule: Host(`godownloader.octolab.org`)
       service: github
@@ -74,10 +82,16 @@ http:
         regex: .*
         replacement: https://github.com/octolab/homebrew-tap
 
+    redirect-stub:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octomation/stub
+
     redirect-tact-cloud:
       redirectRegex:
         regex: .*
         replacement: https://kamilsk.cloud.okteto.net/
+
 
   services:
     github:
