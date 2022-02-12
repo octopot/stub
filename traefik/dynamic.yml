@@ -56,6 +56,14 @@ http:
       middlewares:
         - redirect-letsbuytogether
 
+    octolab:
+      rule: Host(`octolab.net`, `www.octolab.net`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-octolab
+
     tact-cloud:
       rule: Host(`cloud.tact.run`)
       service: github
@@ -94,6 +102,11 @@ http:
       redirectRegex:
         regex: ^https?://.*/(.*)
         replacement: https://kupitevmeste.ru/${1}
+
+    redirect-octolab:
+      redirectRegex:
+        regex: ^https?://.*/(.*)
+        replacement: https://kamil.samigullin.info/${1}
 
     redirect-stub:
       redirectRegex:
