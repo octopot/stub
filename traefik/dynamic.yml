@@ -72,6 +72,14 @@ http:
       middlewares:
         - redirect-letsbuytogether
 
+    lifeos:
+      rule: Host(`lifeos.company`, `www.lifeos.company`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
+
     octolab:
       rule: Host(`octolab.net`, `www.octolab.net`)
       service: github
