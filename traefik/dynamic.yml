@@ -56,6 +56,14 @@ http:
       middlewares:
         - redirect-parked
 
+    jointo:
+      rule: Host(`jointo.space`, `www.jointo.space`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
+
     letsbuytogether:
       rule: Host(`letsbuytogether.ru`, `www.letsbuytogether.ru`)
       service: github
