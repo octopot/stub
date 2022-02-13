@@ -8,14 +8,6 @@ http:
       middlewares:
         - auth
 
-    homepage:
-      rule: Host(`stub.octolab.org`) && Path(`/`)
-      service: github
-      tls:
-        certResolver: letsencrypt
-      middlewares:
-        - redirect-stub
-
     godownloader:
       rule: Host(`godownloader.octolab.org`)
       service: github
@@ -48,6 +40,22 @@ http:
       middlewares:
         - redirect-homebrew
 
+    homepage:
+      rule: Host(`stub.octolab.org`) && Path(`/`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-stub
+
+    helpmehire:
+      rule: Host(`helpmehire.pro`, `www.helpmehire.pro`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
+
     letsbuytogether:
       rule: Host(`letsbuytogether.ru`, `www.letsbuytogether.ru`)
       service: github
@@ -62,7 +70,7 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - redirect-octolab
+        - redirect-parked
 
     samigullin:
       rule: Host(`samigullin.info`, `www.samigullin.info`)
@@ -111,7 +119,7 @@ http:
         regex: ^https?://.*/(.*)
         replacement: https://kupitevmeste.ru/${1}
 
-    redirect-octolab:
+    redirect-parked:
       redirectRegex:
         regex: ^https?://.*/(.*)
         replacement: https://kamil.samigullin.info/${1}
