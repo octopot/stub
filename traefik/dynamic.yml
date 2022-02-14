@@ -88,6 +88,14 @@ http:
       middlewares:
         - redirect-parked
 
+    pleasereviewit:
+      rule: Host(`pleasereviewit.dev`, `www.pleasereviewit.dev`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
+
     samigullin:
       rule: Host(`samigullin.info`, `www.samigullin.info`)
       service: github
