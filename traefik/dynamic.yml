@@ -104,6 +104,14 @@ http:
       middlewares:
         - redirect-samigullin
 
+    sparkle:
+      rule: Host(`sparkle.wiki`, `www.sparkle.wiki`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
+
     tact-cloud:
       rule: Host(`cloud.tact.run`)
       service: github
