@@ -112,6 +112,14 @@ http:
       middlewares:
         - redirect-parked
 
+    tact:
+      rule: Host(`tact.run`, `www.tact.run`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-tact
+
     tact-cloud:
       rule: Host(`cloud.tact.run`)
       service: github
@@ -153,8 +161,8 @@ http:
 
     redirect-parked:
       redirectRegex:
-        regex: ^https?://.*/(.*)
-        replacement: https://kamil.samigullin.info/${1}
+        regex: .*
+        replacement: https://kamil.samigullin.info/
 
     redirect-samigullin:
       redirectRegex:
@@ -165,6 +173,11 @@ http:
       redirectRegex:
         regex: .*
         replacement: https://github.com/octomation/stub
+
+    redirect-tact:
+      redirectRegex:
+        regex: .*
+        replacement: https://app.tact.run/
 
     redirect-tact-cloud:
       redirectRegex:
