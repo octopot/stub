@@ -21,6 +21,9 @@ entryPoints:
   secure:
     address: ":443"
 
+log:
+  level: WARN
+
 providers:
   file:
     filename: /etc/traefik/handle.yml
