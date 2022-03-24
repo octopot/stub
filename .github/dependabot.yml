@@ -1,8 +1,8 @@
 version: 2
 
 updates:
-  - package-ecosystem: docker
-    directory: /traefik/
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
       interval: daily
       time: '05:00'
@@ -16,8 +16,8 @@ updates:
       include: 'scope'
     open-pull-requests-limit: 30
 
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: docker
+    directory: /traefik/
     schedule:
       interval: daily
       time: '05:00'
