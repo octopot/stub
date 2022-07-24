@@ -1,0 +1,15 @@
+http:
+  routers:
+    goimports:
+      rule: Host(`goimports.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-goimports
+
+  middlewares:
+    redirect-goimports:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/go-tools/releases/tag/goimports

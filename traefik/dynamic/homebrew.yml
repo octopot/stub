@@ -1,0 +1,15 @@
+http:
+  routers:
+    homebrew:
+      rule: Host(`homebrew.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-homebrew
+
+  middlewares:
+    redirect-homebrew:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octolab/homebrew-tap

@@ -1,0 +1,15 @@
+http:
+  routers:
+    vanity:
+      rule: Host(`vanity.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-vanity
+
+  middlewares:
+    redirect-vanity:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octomation/vanity

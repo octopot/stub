@@ -1,0 +1,15 @@
+http:
+  routers:
+    egg:
+      rule: Host(`egg.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-egg
+
+  middlewares:
+    redirect-egg:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/egg

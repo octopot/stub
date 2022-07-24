@@ -1,0 +1,15 @@
+http:
+  routers:
+    taskfiles:
+      rule: Host(`taskfiles.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-taskfiles
+
+  middlewares:
+    redirect-taskfiles:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octomation/taskfiles

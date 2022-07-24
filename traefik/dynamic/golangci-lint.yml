@@ -1,0 +1,15 @@
+http:
+  routers:
+    golangci-lint:
+      rule: Host(`golangci-lint.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-golangci-lint
+
+  middlewares:
+    redirect-golangci-lint:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
