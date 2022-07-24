@@ -1,0 +1,9 @@
+http:
+  routers:
+    helpmehire:
+      rule: Host(`helpmehire.pro`, `www.helpmehire.pro`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

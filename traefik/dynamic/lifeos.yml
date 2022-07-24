@@ -1,0 +1,9 @@
+http:
+  routers:
+    lifeos:
+      rule: Host(`lifeos.company`, `www.lifeos.company`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

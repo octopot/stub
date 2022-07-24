@@ -1,0 +1,9 @@
+http:
+  routers:
+    sparkle:
+      rule: Host(`sparkle.wiki`, `www.sparkle.wiki`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

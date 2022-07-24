@@ -1,0 +1,15 @@
+http:
+  routers:
+    letsbuytogether:
+      rule: Host(`letsbuytogether.ru`, `www.letsbuytogether.ru`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-letsbuytogether
+
+  middlewares:
+    redirect-letsbuytogether:
+      redirectRegex:
+        regex: ^https?://.*/(.*)
+        replacement: https://kupitevmeste.ru/${1}

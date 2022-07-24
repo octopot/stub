@@ -1,0 +1,15 @@
+http:
+  routers:
+    samigullin:
+      rule: Host(`samigullin.info`, `www.samigullin.info`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-samigullin
+
+  middlewares:
+    redirect-samigullin:
+      redirectRegex:
+        regex: ^https?://.*/(.*)
+        replacement: https://kamil.samigullin.info/${1}

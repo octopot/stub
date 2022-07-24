@@ -1,0 +1,28 @@
+http:
+  routers:
+    tact:
+      rule: Host(`tact.run`, `www.tact.run`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-tact
+
+    tact-cloud:
+      rule: Host(`cloud.tact.run`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-tact-cloud
+
+  middlewares:
+    redirect-tact:
+      redirectRegex:
+        regex: .*
+        replacement: https://app.tact.run/
+
+    redirect-tact-cloud:
+      redirectRegex:
+        regex: .*
+        replacement: https://kamilsk.cloud.okteto.net/

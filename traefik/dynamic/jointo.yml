@@ -1,0 +1,9 @@
+http:
+  routers:
+    jointo:
+      rule: Host(`jointo.space`, `www.jointo.space`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

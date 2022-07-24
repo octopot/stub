@@ -1,0 +1,9 @@
+http:
+  routers:
+    pleasereviewit:
+      rule: Host(`pleasereviewit.dev`, `www.pleasereviewit.dev`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
