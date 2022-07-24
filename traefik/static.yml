@@ -26,4 +26,4 @@ log:
 
 providers:
   file:
-    filename: /etc/traefik/handle.yml
+    directory: /etc/traefik/config

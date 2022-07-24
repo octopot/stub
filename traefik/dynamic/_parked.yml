@@ -1,0 +1,6 @@
+http:
+  middlewares:
+    redirect-parked:
+      redirectRegex:
+        regex: .*
+        replacement: https://kamil.samigullin.info/

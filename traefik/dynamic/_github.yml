@@ -1,0 +1,12 @@
+http:
+  services:
+    github:
+      loadBalancer:
+        servers:
+          - url: https://github.com
+
+  middlewares:
+    redirect-github:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octolab
