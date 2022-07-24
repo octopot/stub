@@ -7,6 +7,13 @@ set -euo pipefail
   exit 1
 }
 
+build() {
+  docker build \
+    -f traefik/Dockerfile \
+    -t octomation/stub:latest \
+    traefik
+}
+
 publish() {
   docker buildx build \
     --platform linux/amd64,linux/arm64 \
@@ -14,6 +21,13 @@ publish() {
     -f traefik/Dockerfile \
     -t ghcr.io/octomation/stub:latest \
     traefik
+}
+
+server() {
+  docker run \
+    --rm -it \
+    -v "$(pwd)/traefik/users":/runtime/users \
+    octomation/stub:latest
 }
 
 "${@}"
