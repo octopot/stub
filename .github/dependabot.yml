@@ -30,3 +30,18 @@ updates:
       prefix: 'ci/cd'
       include: 'scope'
     open-pull-requests-limit: 30
+
+  - package-ecosystem: gomod
+    directory: /tools/
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: UTC
+    labels:
+      - 'type: improvement'
+      - 'scope: inventory'
+      - 'scope: deps'
+    commit-message:
+      prefix: 'tools'
+      include: 'scope'
+    open-pull-requests-limit: 30
