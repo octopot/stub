@@ -1,6 +1,6 @@
 http:
   routers:
-    octolab:
+    octolab.net:
       rule: Host(`octolab.net`, `www.octolab.net`)
       service: github
       tls:

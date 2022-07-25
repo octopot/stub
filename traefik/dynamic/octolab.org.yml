@@ -1,6 +1,6 @@
 http:
   routers:
-    octolab:
+    octolab.org:
       rule: Host(
           `octolab.org`,
           `www.octolab.org`,
