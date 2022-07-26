@@ -14,15 +14,15 @@ http:
   middlewares:
     kamilsk-on-github:
       redirectRegex:
-        regex: jointo\.space/kamilsk/github$
+        regex: ^.*jointo\.space/kamilsk/github$
         replacement: https://github.com/kamilsk
 
     kamilsk-on-linkedin:
       redirectRegex:
-        regex: jointo\.space/kamilsk/linkedin$
+        regex: ^.*jointo\.space/kamilsk/linkedin$
         replacement: https://www.linkedin.com/in/kamilsk/
 
     kamilsk-on-twitter:
       redirectRegex:
-        regex: jointo\.space/kamilsk/twitter$
+        regex: ^.*jointo\.space/kamilsk/twitter$
         replacement: https://twitter.com/ikamilsk

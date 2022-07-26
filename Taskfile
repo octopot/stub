@@ -30,4 +30,17 @@ server() {
     octomation/stub:latest
 }
 
+reload() {
+  docker pull ghcr.io/octomation/stub
+  docker rm -f stub
+  docker run -d \
+    --name stub \
+    -p 80:80 \
+    -p 443:443 \
+    -v acme:/etc/traefik/acme \
+    -v stub:/runtime \
+    ghcr.io/octomation/stub:latest
+  docker rmi "$(docker images -q -f dangling=true)" 2> /dev/null
+}
+
 "${@}"
