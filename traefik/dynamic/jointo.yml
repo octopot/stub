@@ -6,12 +6,18 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
+        - kamilsk-on-cal.com
         - kamilsk-on-github
         - kamilsk-on-linkedin
         - kamilsk-on-twitter
         - redirect-parked
 
   middlewares:
+    kamilsk-on-cal.com:
+      redirectRegex:
+        regex: ^.*jointo\.space/kamilsk/cal\.com(.*)$
+        replacement: https://cal.com/kamilsk${1}
+
     kamilsk-on-github:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/github$
