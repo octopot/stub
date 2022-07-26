@@ -9,6 +9,7 @@ http:
         - kamilsk-on-cal.com
         - kamilsk-on-github
         - kamilsk-on-linkedin
+        - kamilsk-on-telegram
         - kamilsk-on-twitter
         - redirect-parked
 
@@ -27,6 +28,11 @@ http:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/linkedin$
         replacement: https://www.linkedin.com/in/kamilsk/
+
+    kamilsk-on-telegram:
+      redirectRegex:
+        regex: ^.*jointo\.space/kamilsk/telegram$
+        replacement: https://t.me/kamilsk
 
     kamilsk-on-twitter:
       redirectRegex:
