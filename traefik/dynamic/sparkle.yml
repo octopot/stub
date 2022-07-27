@@ -6,4 +6,10 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - redirect-parked
+        - redirect-to-sparkle-on-github
+
+  middlewares:
+    redirect-to-sparkle-on-github:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/withsparkle

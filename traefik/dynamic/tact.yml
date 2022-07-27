@@ -6,7 +6,7 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - redirect-tact
+        - redirect-to-tact-on-github
 
     tact-cloud:
       rule: Host(`cloud.tact.run`)
@@ -14,15 +14,15 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - redirect-tact-cloud
+        - redirect-to-tact-at-okteto
 
   middlewares:
-    redirect-tact:
+    redirect-to-tact-on-github:
       redirectRegex:
         regex: .*
-        replacement: https://app.tact.run/
+        replacement: https://github.com/tact-app
 
-    redirect-tact-cloud:
+    redirect-to-tact-at-okteto:
       redirectRegex:
         regex: .*
         replacement: https://kamilsk.cloud.okteto.net/

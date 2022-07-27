@@ -6,41 +6,41 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - kamilsk-on-cal.com
-        - kamilsk-on-getmentor
-        - kamilsk-on-github
-        - kamilsk-on-linkedin
-        - kamilsk-on-telegram
-        - kamilsk-on-twitter
+        - redirect-to-kamilsk-on-cal.com
+        - redirect-to-kamilsk-on-getmentor
+        - redirect-to-kamilsk-on-github
+        - redirect-to-kamilsk-on-linkedin
+        - redirect-to-kamilsk-on-telegram
+        - redirect-to-kamilsk-on-twitter
         - redirect-parked
 
   middlewares:
-    kamilsk-on-cal.com:
+    redirect-to-kamilsk-on-cal.com:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/cal\.com(.*)$
         replacement: https://cal.com/kamilsk${1}
 
-    kamilsk-on-getmentor:
+    redirect-to-kamilsk-on-getmentor:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/getmentor$
         replacement: https://getmentor.dev/mentor/kamil-samigullin-612
 
-    kamilsk-on-github:
+    redirect-to-kamilsk-on-github:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/github$
         replacement: https://github.com/kamilsk
 
-    kamilsk-on-linkedin:
+    redirect-to-kamilsk-on-linkedin:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/linkedin$
         replacement: https://www.linkedin.com/in/kamilsk/
 
-    kamilsk-on-telegram:
+    redirect-to-kamilsk-on-telegram:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/telegram$
         replacement: https://t.me/kamilsk
 
-    kamilsk-on-twitter:
+    redirect-to-kamilsk-on-twitter:
       redirectRegex:
         regex: ^.*jointo\.space/kamilsk/twitter$
         replacement: https://twitter.com/ikamilsk

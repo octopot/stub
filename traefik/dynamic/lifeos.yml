@@ -6,4 +6,10 @@ http:
       tls:
         certResolver: letsencrypt
       middlewares:
-        - redirect-parked
+        - redirect-to-lifeos-on-github
+
+  middlewares:
+    redirect-to-lifeos-on-github:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/lifeosm
