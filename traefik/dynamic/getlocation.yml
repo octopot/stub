@@ -1,0 +1,9 @@
+http:
+  routers:
+    getlocation:
+      rule: Host(`getlocation.net`, `www.getlocation.net`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

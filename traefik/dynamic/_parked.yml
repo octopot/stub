@@ -3,4 +3,4 @@ http:
     redirect-parked:
       redirectRegex:
         regex: .*
-        replacement: https://kamil.samigullin.info/
+        replacement: https://github.com/kamilsk

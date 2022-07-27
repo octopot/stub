@@ -1,0 +1,15 @@
+http:
+  routers:
+    vpn.octolab.net:
+      rule: Host(`vpn.octolab.net`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-vpn
+
+  middlewares:
+    redirect-vpn:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/octomation/vpn

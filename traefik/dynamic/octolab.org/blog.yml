@@ -1,0 +1,9 @@
+http:
+  routers:
+    blog.octolab.org:
+      rule: Host(`blog.octolab.org`, `idea.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-github

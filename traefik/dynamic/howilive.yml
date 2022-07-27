@@ -1,0 +1,9 @@
+http:
+  routers:
+    howilive:
+      rule: Host(`howilive.ru`, `www.howilive.ru`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

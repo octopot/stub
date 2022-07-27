@@ -1,0 +1,9 @@
+http:
+  routers:
+    managewp:
+      rule: Host(`managewp.ru`, `www.managewp.ru`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked

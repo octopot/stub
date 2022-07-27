@@ -1,0 +1,9 @@
+http:
+  routers:
+    kupitevmeste:
+      rule: Host(`kupitevmeste.ru`, `www.kupitevmeste.ru`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-parked
