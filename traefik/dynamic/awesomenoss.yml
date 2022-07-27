@@ -1,0 +1,15 @@
+http:
+  routers:
+    awesomenoss:
+      rule: Host(`awesomenoss.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-awesomenoss
+
+  middlewares:
+    redirect-awesomenoss:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk

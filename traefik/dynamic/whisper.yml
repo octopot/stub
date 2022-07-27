@@ -1,0 +1,15 @@
+http:
+  routers:
+    whisper:
+      rule: Host(`whisper.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-whisper
+
+  middlewares:
+    redirect-whisper:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/lifeosm/whisper
