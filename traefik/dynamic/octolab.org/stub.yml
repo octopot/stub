@@ -23,4 +23,4 @@ http:
     redirect-stub:
       redirectRegex:
         regex: .*
-        replacement: https://github.com/octomation/stub
+        replacement: https://github.com/octopot/stub

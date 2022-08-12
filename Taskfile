@@ -10,7 +10,7 @@ set -euo pipefail
 build() {
   docker build \
     -f traefik/Dockerfile \
-    -t octomation/stub:latest \
+    -t octopot/stub:latest \
     traefik
 }
 
@@ -19,7 +19,7 @@ publish() {
     --platform linux/amd64,linux/arm64 \
     --push \
     -f traefik/Dockerfile \
-    -t ghcr.io/octomation/stub:latest \
+    -t ghcr.io/octopot/stub:latest \
     traefik
 }
 
@@ -27,11 +27,11 @@ server() {
   docker run \
     --rm -it \
     -v "$(pwd)/traefik/users":/runtime/users \
-    octomation/stub:latest
+    octopot/stub:latest
 }
 
 reload() {
-  docker pull ghcr.io/octomation/stub
+  docker pull ghcr.io/octopot/stub
   docker rm -f stub
   docker run -d \
     --name stub \
@@ -39,7 +39,7 @@ reload() {
     -p 443:443 \
     -v acme:/etc/traefik/acme \
     -v stub:/runtime \
-    ghcr.io/octomation/stub:latest
+    ghcr.io/octopot/stub:latest
   docker rmi "$(docker images -q -f dangling=true)" 2> /dev/null
 }
 

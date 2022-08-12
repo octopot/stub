@@ -21,11 +21,11 @@ docker run -d \
   -p 443:443 \
   -v acme:/etc/traefik/acme \
   -v stub:/runtime \
-  ghcr.io/octomation/stub:latest
+  ghcr.io/octopot/stub:latest
 ```
 
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
 [social.preview]:   https://cdn.octolab.org/repo/stub.jpg
-[preview.config]:   https://socialify.git.ci/octomation/stub?description=1&font=Raleway&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Light
-[preview.fallback]: https://socialify.git.ci/octomation/stub/image?description=1&font=Raleway&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Light
+[preview.config]:   https://socialify.git.ci/octopot/stub?description=1&font=Raleway&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Light
+[preview.fallback]: https://socialify.git.ci/octopot/stub/image?description=1&font=Raleway&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Light
