@@ -8,6 +8,14 @@ http:
       middlewares:
         - auth
 
+    egg:
+      rule: Host(`egg.octolab.org`)
+      service: github
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - redirect-egg
+
     godownloader:
       rule: Host(`godownloader.octolab.org`)
       service: github
@@ -133,6 +141,11 @@ http:
     auth:
       basicAuth:
         usersFile: /runtime/users
+
+    redirect-egg:
+      redirectRegex:
+        regex: .*
+        replacement: https://github.com/kamilsk/egg
 
     redirect-godownloader:
       redirectRegex:
